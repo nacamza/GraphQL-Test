@@ -1,0 +1,74 @@
+type Query {
+  users: [User]
+  points: [Point]
+}
+
+type User {
+  id: Int!
+  userName: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  contactNumber: String
+  status: Boolean
+  roles: [Role]
+}
+
+type Role {
+  id: ID!
+  name: String!
+  permission: [Permission]
+}
+
+type Permission {
+  id: ID!
+  name: String!
+  read: Boolean!
+  write: Boolean!
+}
+
+type AuthPayload {
+  token: String!
+  refToken: String!
+  user: User!
+}
+
+type Point {
+  id: ID!
+  added: String!
+  patente: String
+  nombreMovil: String
+  nombreCliente: String
+  nombreChofer: String
+  latitud: Float
+  longitud: Float
+  velocidad: Float
+  curso: Float
+  equipoID: Int
+  movilID: Int
+  tiempoIgnicion: String
+  combustible: Int
+  direccion: String!
+  odometroTotal: Float
+  odometroSoftware: Float
+  horometro: String
+  fechaGPS: Datetime
+  ultimaTransmision: Datetime
+  tiempoDetencion: String
+  estadoID: Int
+  clienteID: Int
+  numeroInterno: String!
+  avlid: Int
+}
+
+type Location {
+  type: String
+  coordinates: Coordinates
+}
+
+type Coordinates {
+  Latitud: Float
+  Longitud: Float
+}
+
+

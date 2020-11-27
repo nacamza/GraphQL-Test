@@ -1,0 +1,22 @@
+config:
+  target: 'http://developvizion3.southcentralus.cloudapp.azure.com:4000'
+  phases:
+    - duration: 10
+      arrivalRate: 10
+  processor: './index.js'
+scenarios:
+  - name: 'GraphQL Query load test'
+    flow:
+      - function: 'testCases'
+      - loop:
+          - post:
+              url: '/'
+              headers:
+                X-My-Header: "123"
+              json:
+                query: '{{ $loopElement.query }}'
+                variables: '{{ $loopElement.variables }}'
+          - log: '----------------------------------'
+          - log: 'Sent a request to the {{ $loopElement.operation }}: {{ $loopElement.name }}'
+          - log: 'And variables {{ $loopElement.variables }}'
+        over: cases

@@ -1,0 +1,14 @@
+query PointsFull{
+  points {
+    avlid
+    patente
+    latitud
+    fechaGPS
+    estadoID
+    velocidad
+    odometroTotal
+    odometroSoftware
+    ultimaTransmision
+    id    
+  }
+}
