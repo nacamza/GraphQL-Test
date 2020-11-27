@@ -1,5 +1,5 @@
 config:
-  target: 'http://developvizion3.southcentralus.cloudapp.azure.com:4000'
+  target: 'https://developvizion3.southcentralus.cloudapp.azure.com:4000'
   phases:
     - duration: 10
       arrivalRate: 10
@@ -12,7 +12,8 @@ scenarios:
           - post:
               url: '/'
               headers:
-                X-My-Header: "123"
+                Authorization: "Bearer ..xA9ZtWL6u_Bvz34vIfDSe4fHqBONVxla66q3BWbUoEY"
+                Accept-Encoding: "gzip"
               json:
                 query: '{{ $loopElement.query }}'
                 variables: '{{ $loopElement.variables }}'
